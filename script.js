@@ -4,12 +4,13 @@ $(function(){
 
 var url = 'https://restcountries.eu/rest/v2/name/';
 var countriesList = $('#countries');
+var countryName;
 
 $('#search').click(searchCountries);
 
 function searchCountries(){
     console.log("searchCountries");
-    var countryName = $('#country-name').val();
+    countryName = $('#country-name').val();
     if(!countryName.length) countryName = 'Poland';
     $.ajax({
         url: url + countryName,
@@ -21,9 +22,14 @@ function searchCountries(){
 function showCountriesList(resp){  
     countriesList.empty();
     resp.forEach(function(item){
+        var string = item.name;
+        string = string.toLowerCase();
+        console.log(string);
+        var substring = countryName;
+        if(string.includes(substring)){
         $('<li class="list-group-item">').html('<img class="country-img" src="' + item.flag + '">' + item.name + ' <em>[' + item.alpha3Code + ']</em>').appendTo(countriesList).click(function() {
             showCountriesDetails(item);
-        });
+        })};
     });
 }
 
