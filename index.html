@@ -1,0 +1,63 @@
+<!DOCTYPE>
+<html>
+    <head>
+        <title>12.6</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h1>Country search engine</h1>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-4">
+                    <div class="search-form">
+                        <button id="search">Search a country</button>
+                        <input id="country-name" type="text" />
+                    </div>  
+                    <h2>List of countries</h2>
+                    <ul id="countries">
+                        <li class="list-group-item">No data</li>
+                    </ul>
+                </div>
+                <div class="col-8">
+                    <div class="container">
+                        <div class="row">
+                            <div id="country-description-head" class="col-12 country-description-header">
+                                <div>
+                                    <h2 id="country-description-name"></h2>
+                                    <h4 id="country-description-region"></h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container country-description">
+                        <div class="row">
+                            <div class="col-5 country-img-description">
+                                <img id="country-description-flag">
+                            </div>
+                            <div class="col-7">
+                                <table>
+                                    <tbody id="country-description-table"></tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <script
+			  src="https://code.jquery.com/jquery-3.2.1.min.js"
+			  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+              crossorigin="anonymous">
+        </script>
+        <script src="script.js"></script>
+    </body>
+</html>
