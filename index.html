@@ -4,29 +4,30 @@
         <title>12.6</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" type="text/css" href="style.css">
     </head>
     <body>
         <div class="container">
             <div class="row">
-                <div class="col-12">
+                <div class="col-12 nav">
                     <h1>Country search engine</h1>
                 </div>
             </div>
         </div>
         <div class="container">
             <div class="row">
-                <div class="col-4">
+                <div class="col-4 col-m-12 col-s-12 search-list">
                     <div class="search-form">
-                        <button id="search">Search a country</button>
-                        <input id="country-name" type="text" />
+                        <button id="search" class="btn-search">Search</button>
+                        <input id="country-name" class="input-country" type="text" />
                     </div>  
                     <h2>List of countries</h2>
                     <ul id="countries">
                         <li class="list-group-item">No data</li>
                     </ul>
                 </div>
-                <div class="col-8">
+                <div class="col-8 col-m-12 col-s-12 country-description-container">
                     <div class="container">
                         <div class="row">
                             <div id="country-description-head" class="col-12 country-description-header">
@@ -44,7 +45,7 @@
                             </div>
                             <div class="col-7">
                                 <table>
-                                    <tbody id="country-description-table"></tbody>
+                                    <tbody id="country-description-table" class="table"></tbody>
                                 </table>
                             </div>
                         </div>

@@ -21,7 +21,7 @@ function searchCountries(){
 function showCountriesList(resp){  
     countriesList.empty();
     resp.forEach(function(item){
-        $('<li class="list-group-item">').html('<img class="country-img" src="' + item.flag + '"> ' + item.name + ' <em>[' + item.alpha3Code + ']</em>').appendTo(countriesList).click(function() {
+        $('<li class="list-group-item">').html('<img class="country-img" src="' + item.flag + '">' + item.name + ' <em>[' + item.alpha3Code + ']</em>').appendTo(countriesList).click(function() {
             showCountriesDetails(item);
         });
     });
