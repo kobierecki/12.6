@@ -4,16 +4,15 @@ $(function(){
 
 var url = 'https://restcountries.eu/rest/v2/name/';
 var countriesList = $('#countries');
-var countryName;
 
 $('#search').click(searchCountries);
 
 function searchCountries(){
     console.log("searchCountries");
-    countryName = $('#country-name').val();
-    if(!countryName.length) countryName = 'Poland';
+    var countryNameUserInput = $('#country-name').val();
+    if(!countryNameUserInput.length) countryNameUserInput = 'Poland';
     $.ajax({
-        url: url + countryName,
+        url: url + countryNameUserInput,
         method: 'GET',
         success: showCountriesList
     });
@@ -23,7 +22,8 @@ function showCountriesList(resp){
     countriesList.empty();
     resp.forEach(function(item){
         var countryFullName = item.name.toLowerCase();
-        if(countryFullName.includes(countryName)){
+        var countryNameUserInput = $('#country-name').val();
+        if(countryFullName.includes(countryNameUserInput)){
         $('<li class="list-group-item">').html('<img class="country-img" src="' + item.flag + '">' + item.name + ' <em>[' + item.alpha3Code + ']</em>').appendTo(countriesList).click(function() {
             showCountriesDetails(item);
         })};
