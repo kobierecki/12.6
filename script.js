@@ -22,11 +22,8 @@ function searchCountries(){
 function showCountriesList(resp){  
     countriesList.empty();
     resp.forEach(function(item){
-        var string = item.name;
-        string = string.toLowerCase();
-        console.log(string);
-        var substring = countryName;
-        if(string.includes(substring)){
+        var countryFullName = item.name.toLowerCase();
+        if(countryFullName.includes(countryName)){
         $('<li class="list-group-item">').html('<img class="country-img" src="' + item.flag + '">' + item.name + ' <em>[' + item.alpha3Code + ']</em>').appendTo(countriesList).click(function() {
             showCountriesDetails(item);
         })};
