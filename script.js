@@ -8,22 +8,21 @@ var countriesList = $('#countries');
 $('#search').click(searchCountries);
 
 function searchCountries(){
-    console.log("searchCountries");
     var countryNameUserInput = $('#country-name').val();
     if(!countryNameUserInput.length) countryNameUserInput = 'Poland';
     $.ajax({
         url: url + countryNameUserInput,
         method: 'GET',
-        success: showCountriesList
+        success: function(response){
+            showCountriesList(response, countryNameUserInput);
+        }
     });
 }
 
-function showCountriesList(resp){  
+function showCountriesList(resp, countryNameUserInput){  
     countriesList.empty();
     resp.forEach(function(item){
-        var countryFullName = item.name.toLowerCase();
-        var countryNameUserInput = $('#country-name').val();
-        if(countryFullName.includes(countryNameUserInput)){
+        if(item.name.toLowerCase().includes(countryNameUserInput)){
         $('<li class="list-group-item">').html('<img class="country-img" src="' + item.flag + '">' + item.name + ' <em>[' + item.alpha3Code + ']</em>').appendTo(countriesList).click(function() {
             showCountriesDetails(item);
         })};
@@ -41,14 +40,12 @@ function showCountriesDetails(item){
     table.append('<tr><td>Population</td><td>' + item.population + '</td></tr>');
     table.append('<tr><td>Area</td><td>' + item.area + ' sqm</td></tr>');
     item.currencies.forEach(function(subitem, index){
-        console.log(subitem);
         var blankSpace = '';
         if(index == 0) blankSpace = "Currencies: ";
         table.append('<tr><td>' + blankSpace + '</td><td>' + subitem.code + ' ' + subitem.name +  '</td></tr>');
     });
 
     item.languages.forEach(function(subitem, index){
-        console.log(subitem);
         var blankSpace = '';
         if(index == 0) blankSpace = "Languages: ";
         table.append('<tr><td>' + blankSpace + '</td><td>' + subitem.name +  '</td></tr>');
